@@ -53,4 +53,18 @@ jobs:
         with:
           name: ffmpeg-arm64
           path: android/contrib/build/ffmpeg-arm64/output
+
+      - name: compile ijk-player
+        run: ./compile-ijk.sh arm64
+        working-directory: android
+        env: 
+          ANDROID_NDK: ${{ env.NDK_ROOT }}
+          ANDROID_NDK_ROOT: ${{ env.NDK_ROOT }}
+
+      - name: Upload ijk
+        uses: actions/upload-artifact@v2
+        with:
+          name: ffmpeg-arm64
+          path: android/ijkplayer/ijkplayer-arm64/src/main/libs
+
           
