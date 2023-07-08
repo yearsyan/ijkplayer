@@ -33,6 +33,7 @@ jobs:
         working-directory: android/contrib
         env: 
           ANDROID_NDK: ${{ env.NDK_ROOT }}
+          ANDROID_NDK_ROOT: ${{ env.NDK_ROOT }}
 
       - name: Upload so
         uses: actions/upload-artifact@v2
