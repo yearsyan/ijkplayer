@@ -212,7 +212,7 @@ echo ""
 echo "--------------------"
 echo "[*] check ffmpeg env"
 echo "--------------------"
-export PATH=$FF_TOOLCHAIN_PATH/bin/:$PATH
+export PATH="$FF_TOOLCHAIN_PATH/bin/:$PATH"
 #export CC="ccache ${FF_CROSS_PREFIX}-gcc"
 export CC="${FF_CROSS_PREFIX}-gcc"
 export LD=${FF_CROSS_PREFIX}-ld
@@ -241,7 +241,7 @@ export COMMON_FF_CFG_FLAGS=
 
 #--------------------
 # with openssl
-if [ -f "${FF_DEP_OPENSSL_LIB}/libssl.a" ]; then
+if [ -f "${FF_DEP_OPENSSL_LIB}/libssl.so" ]; then
     echo "OpenSSL detected"
 # FF_CFG_FLAGS="$FF_CFG_FLAGS --enable-nonfree"
     FF_CFG_FLAGS="$FF_CFG_FLAGS --enable-openssl"
