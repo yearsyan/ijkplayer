@@ -64,7 +64,7 @@ jobs:
       - name: Upload ijk
         uses: actions/upload-artifact@v2
         with:
-          name: ffmpeg-arm64
+          name: ijk
           path: android/ijkplayer/ijkplayer-arm64/src/main/libs
 
           
