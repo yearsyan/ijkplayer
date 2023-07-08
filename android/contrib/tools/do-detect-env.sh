@@ -40,7 +40,7 @@ fi
 # try to detect NDK version
 export IJK_GCC_VER=4.9
 export IJK_GCC_64_VER=4.9
-export IJK_MAKE_TOOLCHAIN_FLAGS=
+export IJK_MAKE_TOOLCHAIN_FLAGS="--system=linux-x86_64"
 export IJK_MAKE_FLAG=
 export IJK_NDK_REL=$(grep -o '^r[0-9]*.*' $ANDROID_NDK/RELEASE.TXT 2>/dev/null | sed 's/[[:space:]]*//g' | cut -b2-)
 case "$IJK_NDK_REL" in
