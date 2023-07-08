@@ -35,9 +35,22 @@ jobs:
           ANDROID_NDK: ${{ env.NDK_ROOT }}
           ANDROID_NDK_ROOT: ${{ env.NDK_ROOT }}
 
-      - name: Upload so
+      - name: Upload openssl so
         uses: actions/upload-artifact@v2
         with:
           name: openssl-arm64
           path: android/contrib/build/openssl-arm64/output
+
+      - name: compile ffmpeg
+        run: ./compile-ffmpeg.sh clean && ./compile-ffmpeg.sh arm64
+        working-directory: android/contrib
+        env: 
+          ANDROID_NDK: ${{ env.NDK_ROOT }}
+          ANDROID_NDK_ROOT: ${{ env.NDK_ROOT }}
+
+      - name: Upload ffmpeg so
+        uses: actions/upload-artifact@v2
+        with:
+          name: ffmpeg-arm64
+          path: android/contrib/build/ffmpeg-arm64/output
           
