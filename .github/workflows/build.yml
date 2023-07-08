@@ -61,10 +61,30 @@ jobs:
           ANDROID_NDK: ${{ env.NDK_ROOT }}
           ANDROID_NDK_ROOT: ${{ env.NDK_ROOT }}
 
+      - name: copy openssl library
+        run: cp android/contrib/build/openssl-arm64/output/*.so android/ijkplayer/ijkplayer-arm64/src/main/libs
+
       - name: Upload ijk
         uses: actions/upload-artifact@v2
         with:
           name: ijk
           path: android/ijkplayer/ijkplayer-arm64/src/main/libs
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
+
+      - name: build library
+        run: chmod +x ./gradlew && ./gradlew :ijkplayer-arm64:assembleRelease
+        working-directory: android/ijkplayer
+        env: 
+          ANDROID_NDK: ${{ env.NDK_ROOT }}
+          ANDROID_NDK_ROOT: ${{ env.NDK_ROOT }}
+
+      - name: Upload output
+        uses: actions/upload-artifact@v2
+        with:
+          name: ijkplayer-arm64-output
+          path: android/ijkplayer/ijkplayer-arm64/build/outputs
+
 
           
