@@ -38,6 +38,6 @@ jobs:
       - name: Upload so
         uses: actions/upload-artifact@v2
         with:
-          name: crypto
-          path: android/contrib/build/openssl-arm64/output/lib/libcrypto.so
+          name: openssl-arm64
+          path: android/contrib/build/openssl-arm64/output
           
