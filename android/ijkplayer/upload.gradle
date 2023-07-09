@@ -3,7 +3,7 @@ afterEvaluate {
     publishing {
         publications {
             plugin(MavenPublication) {
-                from components.java
+                from components.release
                 groupId = rootProject.ext.group
                 artifactId = '$artifactId'
                 version = rootProject.ext.versionName
