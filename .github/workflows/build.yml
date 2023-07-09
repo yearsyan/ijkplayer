@@ -35,24 +35,12 @@ jobs:
           ANDROID_NDK: ${{ env.NDK_ROOT }}
           ANDROID_NDK_ROOT: ${{ env.NDK_ROOT }}
 
-      - name: Upload openssl so
-        uses: actions/upload-artifact@v2
-        with:
-          name: openssl-arm64
-          path: android/contrib/build/openssl-arm64/output
-
       - name: compile ffmpeg
         run: ./compile-ffmpeg.sh clean && ./compile-ffmpeg.sh arm64
         working-directory: android/contrib
         env: 
           ANDROID_NDK: ${{ env.NDK_ROOT }}
           ANDROID_NDK_ROOT: ${{ env.NDK_ROOT }}
-
-      - name: Upload ffmpeg so
-        uses: actions/upload-artifact@v2
-        with:
-          name: ffmpeg-arm64
-          path: android/contrib/build/ffmpeg-arm64/output
 
       - name: compile ijk-player
         run: ./compile-ijk.sh arm64
@@ -63,12 +51,6 @@ jobs:
 
       - name: copy openssl library
         run: mkdir -p android/ijkplayer/openssl-lib/src/main/jniLibs/arm64-v8a && cp android/contrib/build/openssl-arm64/output/lib/*.so android/ijkplayer/openssl-lib/src/main/jniLibs/arm64-v8a
-
-      - name: Upload ijk
-        uses: actions/upload-artifact@v2
-        with:
-          name: ijk
-          path: android/ijkplayer/ijkplayer-arm64/src/main/libs
 
       - name: build library
         run: chmod +x ./gradlew && ./gradlew :ijkplayer-arm64:assembleRelease
