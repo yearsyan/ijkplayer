@@ -62,7 +62,7 @@ jobs:
           ANDROID_NDK_ROOT: ${{ env.NDK_ROOT }}
 
       - name: copy openssl library
-        run: cp android/contrib/build/openssl-arm64/output/lib/*.so android/ijkplayer/openssl-lib/src/main/jniLibs
+        run: mkdir -p android/ijkplayer/openssl-lib/src/main/jniLibs/arm64-v8a && cp android/contrib/build/openssl-arm64/output/lib/*.so android/ijkplayer/openssl-lib/src/main/jniLibs/arm64-v8a
 
       - name: Upload ijk
         uses: actions/upload-artifact@v2
