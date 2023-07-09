@@ -5,7 +5,7 @@ afterEvaluate {
             plugin(MavenPublication) {
                 from components.release
                 groupId = rootProject.ext.group
-                artifactId = '$artifactId'
+                artifactId = "$artifactId"
                 version = rootProject.ext.versionName
             }
         }
