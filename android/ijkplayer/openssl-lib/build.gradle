@@ -1,4 +1,4 @@
-def artifactId = 'openssl'
+def artifactId = 'openssl-lib'
 
 apply plugin: 'com.android.library'
 apply from: '../upload.gradle'
