@@ -91,5 +91,13 @@ jobs:
           name: ijkplayer-java-output
           path: android/ijkplayer/ijkplayer-java/build/outputs
 
+      - name: upload maven
+        run: ./gradlew :openssl-lib:publish && ./gradlew :ijkplayer-java:publish && ./gradlew :ijkplayer-arm64:publish
+        working-directory: android/ijkplayer
+        env: 
+          ANDROID_NDK: ${{ env.NDK_ROOT }}
+          ANDROID_NDK_ROOT: ${{ env.NDK_ROOT }}
+          UPLOAD_USER: ${{ secrets.UPLOAD_USER }}
+          UPLOAD_PASSWORD: ${{ secrets.UPLOAD_PASSWORD }}
 
           

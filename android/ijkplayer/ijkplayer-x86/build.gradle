@@ -1,4 +1,7 @@
+def artifactId = 'ijkplayer-x86'
+
 apply plugin: 'com.android.library'
+apply from: '../upload.gradle'
 
 android {
     // http://tools.android.com/tech-docs/new-build-system/tips

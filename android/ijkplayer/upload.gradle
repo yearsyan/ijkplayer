@@ -1,0 +1,34 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+apply plugin: 'maven-publish'
+afterEvaluate {
+    publishing {
+        publications {
+            plugin(MavenPublication) {
+                from components.java
+                groupId = rootProject.ext.group
+                artifactId = '$artifactId'
+                version = rootProject.ext.versionName
+            }
+        }
+        repositories {
+            maven {
+                url = 'https://packages.aliyun.com/maven/repository/2396166-release-ciEWoM/'
+                credentials {
+                    username =  System.getenv('UPLOAD_USER')
+                    password =  System.getenv('UPLOAD_PASSWORD')
+                }
+            }
+            maven {
+                url = 'https://packages.aliyun.com/maven/repository/2396166-snapshot-Wuc4JY/'
+                credentials {
+                    username =  System.getenv('UPLOAD_USER')
+                    password =  System.getenv('UPLOAD_PASSWORD')
+                }
+            }
+        }
+    }
+}
