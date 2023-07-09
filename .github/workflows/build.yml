@@ -70,9 +70,6 @@ jobs:
           name: ijk
           path: android/ijkplayer/ijkplayer-arm64/src/main/libs
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v2
-
       - name: build library
         run: chmod +x ./gradlew && ./gradlew :ijkplayer-arm64:assembleRelease
         working-directory: android/ijkplayer
