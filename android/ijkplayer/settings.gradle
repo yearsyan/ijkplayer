@@ -6,5 +6,7 @@ include ':ijkplayer-x86'
 include ':ijkplayer-java'
 include ':ijkplayer-exo'
 
+include ':openssl-lib'
+
 // include ':ijkplayer-example'
 
